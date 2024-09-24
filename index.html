@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aly's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Archivo Black';
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('https://i.pinimg.com/originals/f7/9d/08/f79d083d1c6b4e7f592ec5c8987f35ff.gif') no-repeat center center/cover;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.7em;
+            margin-bottom: 100px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            text-decoration: none; 
+            color: darkblue;
+            background-color: white;
+            border: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: #e5e5e5;
+            transform: scale(1.1);
+        }
+
+        @media (min-width: 768px) {
+            .button-container {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    <main>
+        <h1>It's Aly's Portfolio❀</h1>
+
+        <div class="button-container">
+            <a href="#project1" class="button">Project 1</a>
+            <a href="#project2" class="button">Project 2</a>
+            <a href="#project3" class="button">Project 3</a>
+            <a href="#project4" class="button">Project 4</a>
+            <a href="#project5" class="button">Project 5</a>
+        </div>
+    </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Aly's Portfolio. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
