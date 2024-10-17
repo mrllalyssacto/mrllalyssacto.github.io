@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Seventeen Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body[data-bs-theme="light"] {
+            background-color: white;
+            color: #4b5cb1;
+        }
+
+        body[data-bs-theme="dark"] {
+            background-color: black;
+            color: #e09e9d;
+        }
+
+        .card {
+            background-color: #92a8d1;
+        }
+
+        body[data-bs-theme="dark"] .card {
+            background-color: #e09e9d;
+        }
+
+        .navbar {
+            background-color: #f7cac9;
+        }
+
+        body[data-bs-theme="dark"] .navbar {
+            background-color: #dec2cb;
+            color: white;
+        }
+
+        body[data-bs-theme="dark"] .navbar a {
+            color: #f7cac9;
+        }
+
+        body[data-bs-theme="dark"] .navbar a:hover {
+            color: #f7cac9;
+        }
+
+        body[data-bs-theme="dark"] .navbar-brand img {
+            filter: brightness(0) invert(1);
+        }
+
+        body[data-bs-theme="light"] .btn-outline-secondary {
+            color: black;
+            border-color: black;
+        }
+
+        body[data-bs-theme="light"] .btn-outline-secondary:hover {
+            background-color: black;
+            color: white;
+        }
+
+        body[data-bs-theme="dark"] .btn-outline-secondary {
+            color: white;
+            border-color: white;
+        }
+
+        body[data-bs-theme="dark"] .btn-outline-secondary:hover {
+            background-color: white;
+            color: black;
+        }
+
+        h1 {
+            font-family: 'Wonder Woman';
+            font-size: 2.7em;
+            margin-bottom: 50px;
+        }
+
+        .card-title {
+            font-family: 'Alevia';
+            font-weight: bold;
+        }
+
+        .zoom {
+            transition: transform 0.2s;
+        }
+
+        .zoom:hover {
+            transform: scale(1.1);
+        }
+
+        .card-main {
+            height: 250px;
+        }
+
+        .card-main-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .additional-card {
+            height: 500px;
+        }
+
+        .additional-card-img-top {
+            height: 250px;
+            object-fit: contain;
+        }
+
+        .concept-card-img-top {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body id="body" data-bs-theme="light">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">
+                <img src="images/17.png" alt="Navbar Logo" style="width: 65px; height: 40px;" />
+            </a>
+            <button class="btn btn-outline-secondary" onclick="changeMode()" type="submit">
+                <img src="images/carat.png" alt="Change Mode" style="width: 40px; height: 40px;" />
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <h1 class="display-4">SEVENTEEN</h1>
+                <div class="row justify-content-center mt-4">
+                    <img src="https://i.pinimg.com/736x/c3/d9/51/c3d9517e20960cf0c4e78fe496472a23.jpg" alt="SEVENTEEN"
+                        style="max-height: 300px; width: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <h1 class="display-4">Gallery</h1>
+            </div>
+        </div>
+        <div class="row" id="cardContainer">
+        </div>
+
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col">
+                    <h1 class="display-4">
+                        SVT Album Concept
+                        <button type="button" onclick="expandContentCover()" class="btn btn-outline-secondary"
+                            id="btnExpandCover">View</button>
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" id="conceptCover" style="display: none;">
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="display-4">Album Covers</h1>
+                    </div>
+                </div>
+                <div class="row" id="additionalCardContainer"></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col">
+                    <h1 class="display-3">
+                        SVT Group Photo
+                        <button type="button" onclick="expandContentPhotos()" class="btn btn-outline-secondary"
+                            id="btnExpandPhotos">View</button>
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" id="conceptPhoto" style="display: none;">
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col"></div>
+                </div>
+                <div class="row" id="conceptCardContainer"></div>
+            </div>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+            </script>
+
+        <script>
+            var names = ["Scoups", "Jeonghan", "Joshua", "Jun", "Hoshi", "Wonwoo", "Woozi", "The8", "Mingyu", "DK", "Seungkwan", "Vernon", "Dino"];
+            var pics = ["gallery/scoups.jpg", "gallery/jeonghan.jpg", "gallery/joshua.jpg", "gallery/jun.jpg", "gallery/hoshi.jpg", "gallery/wonwoo.jpg", "gallery/woozi.jpg", "gallery/the8.jpg", "gallery/mingyu.jpg", "gallery/dk.jpg", "gallery/seungkwan.jpg", "gallery/vernon.jpg", "gallery/dino.jpg"];
+
+            var additionalNames = [
+                "17 Carat (2015)", "Boys Be (2015)", "Love & Letter (2016)",
+                "Going Seventeen (2016)", "Al1 (2017)", "Teen,Age (2017)",
+                "Director's Cut (2018)", "We Make You (2018)", "You Make My Day (2018)",
+                "You Made My Dawn (2019)", "Happy Ending (2019)", "Hit (2019)",
+                "An Ode (2019)", "Fallin' Flower (2020)", "Heng:garae (2020)",
+                "24H (2020)", "Semicolon (2020)", "Not Alone (2021)",
+                "Your Choice (2021)", "Attaca (2021)", "Power of Love (2021)",
+                "Darl+ing (2022)", "Face the Sun (2022)", "Sector 17 (2022)",
+                "_World (2022)", "Dream (2022)", "FML (2023)",
+                "Always Yours (2023)", "Dirty Dancing (2023)", "Seventeenth Heaven (2023)",
+                "God of Light Music (2023)", "17 Is Right Here (2024)",
+                "Maestro (2024)"
+            ];
+
+            var additionalPics = [
+                "albums/17_Carat.jpg", "albums/boys_be.jpg", "albums/love & letter.jpg",
+                "albums/going_seventeen.jpg", "albums/al1.jpg", "albums/teen_age.jpg",
+                "albums/directors_cut.jpg", "albums/we_make_you.png", "albums/you_make_my_day.jpg",
+                "albums/you_made_my_dawn.jpg", "albums/happy_ending.jpg", "albums/hit.jpg",
+                "albums/an_ode.jpg", "albums/fallin_flower.jpg", "albums/heng_garae.jpg",
+                "albums/24h.jpg", "albums/semicolon.jpg", "albums/not_alone.jpg",
+                "albums/your_choice.jpg", "albums/attaca.jpg", "albums/power_of_love.jpg",
+                "albums/darling.jpg", "albums/face_the_sun.jpg", "albums/sector_17.jpg",
+                "albums/world.jpg", "albums/dream.jpg", "albums/fml.jpg",
+                "albums/always_yours.jpg", "albums/dirty_dancing.jpg", "albums/seventeenth_heaven.jpg",
+                "albums/god_of_light_music.jpg", "albums/17_is_right_here.jpg",
+                "albums/maestro.jpg"
+            ];
+
+            var conceptNames = [
+                "💎", "💎", "💎", "💎", "💎", "💎", "💎", "💎", "💎", "💎",
+                "💎", "💎", "💎", "💎", "💎", "💎", "💎", "💎", "💎", "💎",
+                "💎", "💎", "💎", "💎", "💎", "💎", "💎", "💎", "💎", "💎",
+                "💎", "💎", "💎", "💎", "💎", "💎"
+            ];
+
+            var conceptPics = [
+                "photos/1.jpg", "photos/2.jpg", "photos/3.jpg", "photos/4.jpg",
+                "photos/5.jpg", "photos/6.jpg", "photos/7.jpg", "photos/8.jpg",
+                "photos/9.jpg", "photos/10.jpg", "photos/11.jpg", "photos/12.jpg",
+                "photos/13.jpg", "photos/14.jpg", "photos/15.jpg", "photos/16.jpg",
+                "photos/17.jpg", "photos/18.jpg", "photos/19.jpg", "photos/20.jpg",
+                "photos/21.jpg", "photos/22.jpg", "photos/23.jpg", "photos/24.jpg",
+                "photos/25.jpg", "photos/26.jpg", "photos/27.jpg", "photos/28.jpg",
+                "photos/29.jpg", "photos/30.jpg", "photos/31.jpg", "photos/32.jpg",
+                "photos/33.jpg", "photos/34.jpg", "photos/35.jpg", "photos/36.jpg"
+
+            ];
+
+            for (var i = 0; i < names.length; i++) {
+                var myContainer = document.getElementById("cardContainer");
+                myContainer.innerHTML += "<div class=\"col-lg-2 col-md-3 col-sm-4 col-6\"><div class=\"card my-3 card-main\" id=\"c" + i +
+                    "\" onmouseenter=\"addShadow('c" + i + "')\" onmouseleave=\"removeShadow('c" + i + "')\"><img src=\"images/" +
+                    pics[i] + "\" class=\"card-main-img-top zoom\"><div class=\"card-body\"><h5 class=\"card-title text-center\">" + names[i] + "</h5></div></div></div>";
+            }
+
+
+            for (var i = 0; i < additionalNames.length; i++) {
+                var additionalContainer = document.getElementById("additionalCardContainer");
+                additionalContainer.innerHTML += "<div class=\"col-lg-3 col-md-3 col-sm-3 col-6\"><div class=\"card my-3\" id=\"c" + i +
+                    "\" onmouseenter=\"addShadow('c" + i + "')\" onmouseleave=\"removeShadow('ac" + i + "')\"><img src=\"images/" +
+                    additionalPics[i] + "\" class=\"additional-card-img-top zoom\"><div class=\"card-body\"><h5 class=\"card-title text-center\">" + additionalNames[i] + "</h5></div></div></div>";
+            }
+
+            for (var i = 0; i < conceptNames.length; i++) {
+                var conceptContainer = document.getElementById("conceptCardContainer");
+                conceptContainer.innerHTML += "<div class=\"col-lg-3 col-md-4 col-sm-6 col-6\"><div class=\"card my-3\" id=\"c" + i +
+                    "\" onmouseenter=\"addShadow('c" + i + "')\" onmouseleave=\"removeShadow('ac" + i + "')\"><img src=\"images/" +
+                    conceptPics[i] + "\" class=\"concept-card-img-top zoom\"><div class=\"card-body\"><h5 class=\"card-title text-center\">" + conceptNames[i] + "</h5></div></div></div>";
+            }
+
+            function addShadow(id) {
+                document.getElementById(id).classList.add("shadow");
+            }
+
+            function removeShadow(id) {
+                document.getElementById(id).classList.remove("shadow");
+            }
+
+            var displayConceptCover = "none";
+            var displayConceptPhoto = "none";
+
+            function expandContentCover() {
+                var concept = document.getElementById("conceptCover");
+                var btnExpand = document.getElementById("btnExpandCover");
+
+
+                if (displayConceptCover === "none") {
+                    concept.style.display = "block";
+                    displayConceptCover = "block";
+                    btnExpand.innerHTML = "Less";
+                } else {
+                    concept.style.display = "none";
+                    displayConceptCover = "none";
+                    btnExpand.innerHTML = "View";
+                }
+            }
+
+            function expandContentPhotos() {
+                var concept = document.getElementById("conceptPhoto");
+                var btnExpand = document.getElementById("btnExpandPhotos");
+
+
+                if (displayConceptPhoto === "none") {
+                    concept.style.display = "block";
+                    displayConceptPhoto = "block";
+                    btnExpand.innerHTML = "Less";
+                } else {
+                    concept.style.display = "none";
+                    displayConceptPhoto = "none";
+                    btnExpand.innerHTML = "View";
+                }
+            }
+
+            var colorMode = "light";
+            function changeMode() {
+                var bodyElement = document.getElementById("body");
+                colorMode = colorMode == "dark" ? "light" : "dark";
+                bodyElement.setAttribute("data-bs-theme", colorMode);
+            }
+        </script>
+</body>
+
+</html>
