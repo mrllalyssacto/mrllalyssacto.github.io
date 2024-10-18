@@ -15,7 +15,7 @@
 
         body[data-bs-theme="dark"] {
             background-color: black;
-            color: #e09e9d;
+            color: white;
         }
 
         .card {
@@ -73,7 +73,7 @@
             margin-bottom: 50px;
         }
 
-        .card-Title {
+        .card-title {
             font-family: 'Alevia';
             font-weight: bold;
         }
@@ -86,35 +86,35 @@
             transform: scale(1.1);
         }
 
-        .cardMain {
+        .card-main {
             height: 250px;
         }
 
-        .cardMainImgTop {
+        .card-main-img-top {
             height: 200px;
             object-fit: cover;
         }
 
-        .additionalCard {
+        .additional-card {
             height: 500px;
         }
 
-        .additionalCardImgTop {
+        .additional-card-img-top {
             height: 250px;
             object-fit: contain;
         }
 
-        .conceptCardImgTop {
+        .concept-card-img-top {
             height: 200px;
             width: 100%;
             object-fit: cover;
         }
 
-        .hoverImage {
+        .hover-image {
             transition: transform 0.3s ease;
         }
 
-        .hoverImage:hover {
+        .hover-image:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
@@ -134,6 +134,11 @@
         .heartbeat {
             animation: heartbeat 0.6s ease-in-out;
             /* Runs once */
+        }
+
+        footer {
+            padding: 20px 0;
+            text-align: center;
         }
     </style>
 </head>
@@ -296,7 +301,7 @@
             }
 
             function addShadow(id) {
-                var card = document.getElementById(id); 
+                var card = document.getElementById(id);
                 card.classList.add("shadow");
                 card.classList.add("heartbeat");
 
@@ -335,7 +340,7 @@
 
 
                 if (displayConceptPhoto === "none") {
-                    concept.style.display = "";
+                    concept.style.display = "block";
                     displayConceptPhoto = "block";
                     btnExpand.innerHTML = "Less";
                 } else {
@@ -353,6 +358,7 @@
             }
 
         </script>
+
 </body>
 
 </html>
