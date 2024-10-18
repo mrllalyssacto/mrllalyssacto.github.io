@@ -110,8 +110,33 @@
             object-fit: cover;
         }
 
-        .text-center {
-            text-align: center;
+        .hover-image {
+            transition: transform 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .hover-image:hover {
+            transform: scale(1.1);
+            /* Scale up the image by 10% */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            /* Adds a shadow */
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .heartbeat {
+            animation: heartbeat 0.6s ease-in-out;
+            /* Runs once */
         }
     </style>
 </head>
@@ -133,8 +158,8 @@
             <div class="col">
                 <h1 class="display-4">SEVENTEEN</h1>
                 <div class="row justify-content-center mt-4">
-                    <img src="https://i.pinimg.com/736x/c3/d9/51/c3d9517e20960cf0c4e78fe496472a23.jpg" alt="SEVENTEEN"
-                        style="max-height: 300px; width: auto;">
+                    <img src="https://pa1.narvii.com/6471/276b3c606c73ca02b6521885a24db1eeb27a2872_hq.gif"
+                        alt="SEVENTEEN" class="hover-image" style="max-height: 500px; width: auto;">
                 </div>
             </div>
         </div>
@@ -259,27 +284,33 @@
                     pics[i] + "\" class=\"card-main-img-top zoom\"><div class=\"card-body\"><h5 class=\"card-title text-center\">" + names[i] + "</h5></div></div></div>";
             }
 
-
             for (var i = 0; i < additionalNames.length; i++) {
                 var additionalContainer = document.getElementById("additionalCardContainer");
-                additionalContainer.innerHTML += "<div class=\"col-lg-3 col-md-3 col-sm-3 col-6\"><div class=\"card my-3\" id=\"c" + i +
-                    "\" onmouseenter=\"addShadow('c" + i + "')\" onmouseleave=\"removeShadow('ac" + i + "')\"><img src=\"images/" +
+                additionalContainer.innerHTML += "<div class=\"col-lg-3 col-md-3 col-sm-3 col-6\"><div class=\"card my-3\" id=\"ac" + i +
+                    "\" onmouseenter=\"addShadow('ac" + i + "')\" onmouseleave=\"removeShadow('ac" + i + "')\"><img src=\"images/" +
                     additionalPics[i] + "\" class=\"additional-card-img-top zoom\"><div class=\"card-body\"><h5 class=\"card-title text-center\">" + additionalNames[i] + "</h5></div></div></div>";
             }
 
             for (var i = 0; i < conceptNames.length; i++) {
                 var conceptContainer = document.getElementById("conceptCardContainer");
-                conceptContainer.innerHTML += "<div class=\"col-lg-3 col-md-4 col-sm-6 col-6\"><div class=\"card my-3\" id=\"c" + i +
-                    "\" onmouseenter=\"addShadow('c" + i + "')\" onmouseleave=\"removeShadow('ac" + i + "')\"><img src=\"images/" +
+                conceptContainer.innerHTML += "<div class=\"col-lg-3 col-md-4 col-sm-6 col-6\"><div class=\"card my-3\" id=\"cc" + i +
+                    "\" onmouseenter=\"addShadow('cc" + i + "')\" onmouseleave=\"removeShadow('cc" + i + "')\"><img src=\"images/" +
                     conceptPics[i] + "\" class=\"concept-card-img-top zoom\"><div class=\"card-body\"><h5 class=\"card-title text-center\">" + conceptNames[i] + "</h5></div></div></div>";
             }
 
             function addShadow(id) {
-                document.getElementById(id).classList.add("shadow");
+                var card = document.getElementById(id); 
+                card.classList.add("shadow");
+                card.classList.add("heartbeat");
+
+                setTimeout(function () {
+                    card.classList.remove("heartbeat");
+                }, 600);
             }
 
             function removeShadow(id) {
-                document.getElementById(id).classList.remove("shadow");
+                var card = document.getElementById(id);
+                card.classList.remove("shadow");
             }
 
             var displayConceptCover = "none";
@@ -307,7 +338,7 @@
 
 
                 if (displayConceptPhoto === "none") {
-                    concept.style.display = "block";
+                    concept.style.display = "";
                     displayConceptPhoto = "block";
                     btnExpand.innerHTML = "Less";
                 } else {
@@ -323,6 +354,7 @@
                 colorMode = colorMode == "dark" ? "light" : "dark";
                 bodyElement.setAttribute("data-bs-theme", colorMode);
             }
+
         </script>
 </body>
 
