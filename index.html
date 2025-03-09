@@ -162,13 +162,13 @@
         }
 
         .socialIcons a i {
-            font-size: 1.2rem;
+            font-size: 1.8rem;
             background: linear-gradient(90deg, #FFEB3B, #9C27B0);
             background-clip: text;
             color: transparent;
             display: inline-block;
             transition: 0.3s ease-in-out;
-            margin: 0 5px;
+            margin: 0 8px;
         }
 
         .socialIcons a i:hover {
@@ -208,6 +208,49 @@
 
         .aboutContent p {
             font-size: 1rem;
+        }
+
+        .devContent {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .devContent h3 {
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+            flex-wrap: nowrap;
+            text-align: center;
+        }
+
+        .devContent h3 span {
+            background: linear-gradient(90deg, #FFEB3B, #9C27B0);
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .devContent button {
+            font-size: 1.25rem;
+            color: #9C27B0;
+            border: 2px solid #9C27B0;
+            background-color: transparent;
+            transition: all 0.3s ease-in-out;
+            padding: 5px 15px;
+            margin-top: 10px;
+        }
+
+        .devContent button:hover {
+            background: linear-gradient(90deg, #FFEB3B, #9C27B0);
+            background-clip: text;
+            color: transparent;
+            border-color: #FFEB3B;
         }
 
         .projects {
@@ -295,8 +338,8 @@
 
         .footer .socialIcons a i {
             color: #FFEB3B;
-            font-size: 1.5rem;
-            margin: 0 10px;
+            font-size: 2rem;
+            margin: 0 15px;
             transition: transform 0.3s ease, color 0.3s ease;
             background: linear-gradient(90deg, #FFEB3B, #9C27B0);
             background-clip: text;
@@ -385,6 +428,15 @@
                 font-size: 3rem;
             }
 
+            .devContent h3 {
+                font-size: 1.5rem;
+            }
+
+            .devContent button {
+                font-size: 1rem;
+                padding: 6px 15px;
+            }
+
             .projects {
                 flex-direction: column;
             }
@@ -412,12 +464,27 @@
                 width: 70vw;
             }
 
+            .socialIcons a i {
+                font-size: 1.3rem;
+            }
+
             .aboutContent h2 {
                 font-size: 2.5rem;
             }
 
+            .devContent h3 {
+                font-size: 1.2rem;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .devContent button {
+                font-size: .5rem;
+                padding: 5px 12px;
+            }
+
             .cardProject {
-                padding: 1rem;
+                padding: 0.5rem;
                 text-align: center;
             }
 
@@ -426,7 +493,7 @@
             }
 
             .footer .socialIcons a i {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
 
             .footer ul {
@@ -517,72 +584,100 @@
             <div class="aboutContent mb-5 text-center">
                 <h2>Pro<span>jects</span></h2>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="cardProject">
-                        <img src="images/lenovo.png" class="card-img-top" alt="Lenovo">
-                        <div class="card-body">
-                            <h5 class="cardTitle"><b>Lenovo</b></h5>
-                            <p class="cardText">A budget-friendly 14-inch laptop with an
-                                Intel Celeron processor for everyday tasks. Affordable for everyone.</p>
-                            <a href="projects/project1/index.html" class="btn btn-primary">Project 1</a>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="devContent">
+                        <h3>
+                            Web <span>Development</span>
+                        </h3>
+                        <button type="button" onclick="expandContentWebDev()" class="btn btn-outline-secondary"
+                            id="btnExpandWebDev">More</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="contentWebDev" style="display: none;">
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="cardProject">
+                            <img src="images/lenovo.png" class="card-img-top" alt="Lenovo">
+                            <div class="card-body">
+                                <h5 class="cardTitle"><b>Lenovo</b></h5>
+                                <p class="cardText">A budget-friendly 14-inch laptop with an
+                                    Intel Celeron processor for everyday tasks. Affordable for everyone.</p>
+                                <a href="projects/webDev/project1/index.html" class="btn btn-primary">Project 1</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="cardProject">
+                            <img src="images/netherlands.jpg" class="card-img-top" alt="Netherlands">
+                            <div class="card-body">
+                                <h5 class="cardTitle"><b>Exploring Netherlands</b></h5>
+                                <p class="cardText">Explore the Netherlands' charming canals, vibrant cities, and
+                                    stunning
+                                    tulip fields for an unforgettable experience.</p>
+                                <a href="projects/webDev/project2/index.html" class="btn btn-primary">Project 2</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="cardProject">
+                            <img src="images/seventeen.jpg" class="card-img-top" alt="Seventeen">
+                            <div class="card-body">
+                                <h5 class="cardTitle"><b>Seventeen Gallery</b></h5>
+                                <p class="cardText">Discover Seventeen's albums, concept photos, and performances in a
+                                    stunning gallery.</p>
+                                <a href="projects/webDev/project3/index.html" class="btn btn-primary">Project 3</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="cardProject">
+                            <img src="images/rick and morty.jpg" class="card-img-top" alt="Rick and Morty API">
+                            <div class="card-body">
+                                <h5 class="cardTitle"><b>Rick and Morty API</b></h5>
+                                <p class="cardText">The Rick and Morty API offers data on characters, episodes, and
+                                    locations from the show.</p>
+                                <a href="projects/webDev/project4/index.html" class="btn btn-primary">Project 4</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="cardProject">
+                            <img src="images/space.jpg" class="card-img-top" alt="Outer Space">
+                            <div class="card-body">
+                                <h5 class="cardTitle"><b>Discover Space</b></h5>
+                                <p class="cardText">Explore the vastness of space, filled with stars, planets, and
+                                    waiting to be discovered.</p>
+                                <a href="projects/webDev/project5/banner.html" class="btn btn-primary">Project 5</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="cardProject">
+                            <img src="images/caratland.jpg" class="card-img-top" alt="Video">
+                            <div class="card-body">
+                                <h5 class="cardTitle"><b>Caratland</b></h5>
+                                <p class="cardText">Showcases exclusive content from Seventeen's latest performances and
+                                    events.</p>
+                                <a href="projects/webDev/video/index.html" class="btn btn-primary">Video</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="cardProject">
-                        <img src="images/netherlands.jpg" class="card-img-top" alt="Netherlands">
-                        <div class="card-body">
-                            <h5 class="cardTitle"><b>Exploring Netherlands</b></h5>
-                            <p class="cardText">Explore the Netherlands' charming canals, vibrant cities, and
-                                stunning
-                                tulip fields for an unforgettable experience.</p>
-                            <a href="projects/project2/index.html" class="btn btn-primary">Project 2</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="cardProject">
-                        <img src="images/seventeen.jpg" class="card-img-top" alt="Seventeen">
-                        <div class="card-body">
-                            <h5 class="cardTitle"><b>Seventeen Gallery</b></h5>
-                            <p class="cardText">Discover Seventeen's albums, concept photos, and performances in a
-                                stunning gallery.</p>
-                            <a href="projects/project3/index.html" class="btn btn-primary">Project 3</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="cardProject">
-                        <img src="images/rick and morty.jpg" class="card-img-top" alt="Rick and Morty API">
-                        <div class="card-body">
-                            <h5 class="cardTitle"><b>Rick and Morty API</b></h5>
-                            <p class="cardText">The Rick and Morty API offers data on characters, episodes, and
-                                locations from the show.</p>
-                            <a href="projects/project4/index.html" class="btn btn-primary">Project 4</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="cardProject">
-                        <img src="images/space.jpg" class="card-img-top" alt="Outer Space">
-                        <div class="card-body">
-                            <h5 class="cardTitle"><b>Discover Space</b></h5>
-                            <p class="cardText">Explore the vastness of space, filled with stars, planets, and
-                                waiting to be discovered.</p>
-                            <a href="projects/project5/banner.html" class="btn btn-primary">Project 5</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="cardProject">
-                        <img src="images/caratland.jpg" class="card-img-top" alt="Video">
-                        <div class="card-body">
-                            <h5 class="cardTitle"><b>Caratland</b></h5>
-                            <p class="cardText">Showcases exclusive content from Seventeen's latest performances and
-                                events.</p>
-                            <a href="projects/video/index.html" class="btn btn-primary">Video</a>
-                        </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="devContent">
+                        <h3>
+                            App <span>Development</span>
+                        </h3>
+                        <button type="button" onclick="expandContentAppDev()" class="btn btn-outline-secondary"
+                            id="btnExpandAppDev">More</button>
                     </div>
                 </div>
             </div>
@@ -616,6 +711,42 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
+
+    <script>
+        var displayWebDev = "none";
+        var displayAppDev = "none";
+
+        function expandContentWebDev() {
+            var content = document.getElementById("contentWebDev");
+            var btnExpand = document.getElementById("btnExpandWebDev");
+
+            if (displayWebDev === "none") {
+                content.style.display = "block";
+                displayWebDev = "block";
+                btnExpand.innerHTML = "Less";
+            } else {
+                content.style.display = "none";
+                displayWebDev = "none";
+                btnExpand.innerHTML = "More";
+            }
+        }
+
+        function expandContentAppDev() {
+            var content = document.getElementById("contentAppDev");
+            var btnExpand = document.getElementById("btnExpandAppDev");
+
+            if (displayAppDev === "none") {
+                content.style.display = "block";
+                displayAppDev = "block";
+                btnExpand.innerHTML = "Less";
+            } else {
+                content.style.display = "none";
+                displayAppDev = "none";
+                btnExpand.innerHTML = "View";
+            }
+        }
+    </script>
+
 </body>
 
 </html>
