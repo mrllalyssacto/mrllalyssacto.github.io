@@ -1,21 +1,26 @@
 <?php
 
 $page = "formal";
+$cardColor = "";
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
     switch ($page) {
         case "formal":
             $page = "formal";
+            $cardColor = "#E4E4A1";
             break;
         case "casual":
             $page = "casual";
+            $cardColor = "#FF6C4D";
             break;
         case "sports":
             $page = "sports";
+            $cardColor = "#2E8ECE";
             break;
         case "sandals":
             $page = "sandals";
+            $cardColor = "#2CC36B";
             break;
         default:
             header("Location: ?page=formal");
@@ -102,12 +107,6 @@ if (isset($_GET['page'])) {
 
         }
 
-        .aboutContent h1 {
-            font-size: 2.5rem;
-            text-align: left;
-            margin-top: 50px;
-        }
-
         .card {
             width: 80%;
             margin: 0 auto;
@@ -118,6 +117,10 @@ if (isset($_GET['page'])) {
             flex-direction: column;
             align-items: center;
             text-align: center;
+        }
+
+        .customCard {
+            background-color: <?php echo $cardColor ?>;
         }
 
         .card-img-top {
@@ -156,7 +159,10 @@ if (isset($_GET['page'])) {
         </div>
     </nav>
 
-    <?php include("shared/" . $page . ".php"); ?>
+    <div class="container-fluid p-0">
+        <?php include("shared/" . $page . ".php"); ?>
+    </div>
+
 
     <footer class="text-center py-4">
         <p>&copy; 2025 ApakPH. All rights reserved.</p>
