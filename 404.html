@@ -28,7 +28,7 @@
         }
 
         .saturnImg {
-            width: 200px;
+            width: 150px;
             height: auto;
             margin: 0 15px;
             border-radius: 50%;
@@ -40,11 +40,12 @@
             height: 100vh;
             position: relative;
             color: white;
+            padding: 20px;
         }
 
         .spaceText {
-            font-size: 1.5rem;
-            margin-top: 30px;
+            font-size: 1.25rem;
+            margin-top: 20px;
             color: white;
         }
 
@@ -63,15 +64,36 @@
         }
 
         .large-404 {
-            font-size: 8rem;
+            font-size: 6rem;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .saturnColor {
             color: #A0522D;
         }
+
+        @media (max-width: 576px) {
+            .large-404 {
+                font-size: 4rem;
+            }
+
+            .saturnImg {
+                width: 150px;
+            }
+
+            .spaceText {
+                font-size: 1rem;
+            }
+
+            .btn-back {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+        }
+        
     </style>
 </head>
 
@@ -80,11 +102,11 @@
         <div class="container text-center">
             <div class="large-404">
                 <span>4</span>
-                <img src="images/saturn2.gif" alt="Saturn" class="saturnImg">
+                <img src="/images/saturn2.gif" alt="Saturn" class="saturnImg">
                 <span>4</span>
             </div>
             <p class="spaceText">The Page you landed is <span class="saturnColor">Saturn</span>, not Earth!</p>
-            <a href="index.html" class="btn btn-back">Go back to Earth</a>
+            <a href="/index.html" class="btn btn-back">Go back to Earth</a>
         </div>
     </div>
 
