@@ -1,0 +1,197 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.navbar {
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    z-index: 1000;
+}
+
+.nav-link {
+    font-weight: bold;
+    background: linear-gradient(90deg, #f78da7, #80d0f0, #7fe386);
+    background-clip: text;
+    color: transparent;
+    font-size: 20px;
+}
+
+.card {
+    border-radius: 24px;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.blossomImg {
+    height: 305px;
+    width: 305px;
+    position: absolute;
+    top: 10px;
+    left: -75px;
+}
+
+.buttercupImg {
+    height: 264px;
+    width: 379px;
+    position: absolute;
+    top: 140px;
+    right: -75px;
+}
+
+.bubblesImg {
+    height: 317px;
+    width: 376px;
+    position: absolute;
+    bottom: 100px;
+    right: -90px;
+}
+
+.professorImg {
+    height: 180px;
+    width: 300px;
+    position: absolute;
+    top: 9px;
+    right: -90px;
+}
+
+.mojojoImg {
+    height: 170px;
+    width: 164px;
+    position: absolute;
+    top: 20px;
+    left: 8px;
+    object-fit: cover;
+}
+
+.blossomText {
+    font-weight: bold;
+    font-size: 32px;
+    color: white;
+    top: 250px;
+    right: 50px;
+    position: absolute;
+}
+
+.buttercupText {
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    bottom: 270px;
+    position: absolute;
+}
+
+.bubblesText {
+    font-weight: bold;
+    font-size: 35px;
+    color: white;
+    top: 270px;
+    left: 80px;
+    position: absolute;
+}
+
+.professorText {
+    font-weight: bold;
+    font-size: 23px;
+    color: white;
+    position: absolute;
+    left: 5px;
+    top: 15px;
+}
+
+.mojojoText {
+    font-weight: bold;
+    font-size: 23px;
+    color: white;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+footer {
+    padding: 20px 0;
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .mojojoImg {
+        top: 20px;
+        left: -10px;
+    }
+
+    .blossomText {
+        font-size: 28px;
+        top: 290px;
+        right: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .mojojoImg {
+        top: 20px;
+        left: 90px;
+    }
+
+    .blossomText {
+        font-size: 25px;
+        top: 290px;
+        right: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .buttercupImg {
+        transform: translate(5%, -20px);
+        position: absolute;
+        right: 12px;
+        max-width: 210px;
+        min-width: auto;
+        max-height: 220px;
+    }
+
+    .bubblesImg {
+        height: 280px;
+        width:280px;
+        position: absolute;
+        bottom: 120px;
+        right: 5px;
+    }
+
+    .blossomImg {
+        height: 250px;
+        width: 150px;
+        position: absolute;
+        top: 10px;
+        left: 1px;
+    }
+
+    .mojojoImg {
+        top: 30px;
+        left: 5px;
+        height: 150px;
+        width: 150px;
+    }
+
+    .blossomText {
+        margin-top: 20px;
+        font-size: 22px;
+    }
+
+    .buttercupText {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 40px;
+        right: 10px;
+    }
+
+    .mojojoText {
+        left: 10px;
+    }
+}
