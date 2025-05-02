@@ -942,8 +942,8 @@ function addToReceipt(price, code, image) {
 
     receiptContainer.innerHTML += `
     <div class="card mb-2 p-2">
-        <div class="d-flex flex-row flex-wrap justify-content-between align-items-center">
-            <div class="col-12 col-sm-2 d-flex align-items-center mb-2 mb-sm-0">
+        <div class="row text-center text-sm-start align-items-center">
+            <div class="col-12 col-sm-2 mb-2 mb-sm-0 d-flex justify-content-center">
                 <img src="assets/images/` + image + `" class="me-2" style="width: 40px; height: 40px; object-fit: cover; border-radius: 5px;">
             </div>
             <div class="col-12 col-sm-6 mb-2 mb-sm-0">
