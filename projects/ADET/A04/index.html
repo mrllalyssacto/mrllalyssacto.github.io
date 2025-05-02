@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GreenNest Shop POS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="../../../images/logo.png">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+        }
+
+        body {
+            background-color: #F1F1F1;
+        }
+
+        .topcontainer {
+            height: 15dvh;
+            background-color: #F1F1F1;
+        }
+
+        .categories {
+            width: fit-content;
+
+        }
+
+        .maincontainer {
+            height: 75dvh;
+            background-color: #F1F1F1;
+        }
+
+        .category-img {
+            width: 50%;
+            height: 52px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .content-img {
+            width: 100%;
+            height: auto;
+            max-height: 120px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .card {
+            border-radius: 10px;
+        }
+
+        .cardCategory {
+            width: 150px;
+        }
+
+        .cardCustom {
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .product-name {
+            margin-top: auto;
+            font-size: 0.9rem;
+            line-height: 1.2;
+        }
+
+        .print-button {
+            background-color: #3672F0;
+            width: 300px;
+            height: 50px;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid p-0">
+            <div class="ms-4 d-flex align-items-center">
+                <a href="../../../index.html" class="d-flex align-items-center text-decoration-none">
+                    <img src="assets/images/flower logo.png" alt="Navbar Logo"
+                        style="width: 50px; height: 50px;"/>
+                </a>
+            </div>
+            <div class="ms-auto me-5 d-flex align-items-center">
+                <!-- <a href="../../../index.html" class="d-flex align-items-center text-decoration-none"> -->
+                <img src="assets/images/profile.png" alt="Navbar Logo"
+                    style="width: 60px; height: 50px; border-radius: 50%;" class="me-4 mt-2" />
+                <span class="navbar-text fw-bold text-dark">Alyssa</span>
+                <!-- </a> -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0 overflow-hidden">
+        <div class="row pt-3">
+            <div class="col-lg-1 col-md-2">
+                <div class="card p-3 mb-3" style="height: 100%;">
+                    <div class="d-flex flex-sm-row flex-md-column justify-content-center align-items-center gap-4 mt-md-5">
+                        <div class="card" style="height: 40px; width: 40px; border: none;">
+                            <a href="#categories">
+                                <img src="assets/images/app.png" class="img-fluid w-100 h-100" alt="Flower1"
+                                    style="object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="card" style="height: 40px; width: 40px; border: none;">
+                            <a href="#">
+                                <img src="assets/images/list.png" class="img-fluid w-100 h-100" alt="Flower1"
+                                    style="object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="card" style="height: 40px; width: 40px; border: none;">
+                            <a href="#">
+                                <img src="assets/images/history.png" class="img-fluid w-100 h-100" alt="Flower1"
+                                    style="object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="card" style="height: 40px; width: 40px; border: none;">
+                            <a href="#">
+                                <img src="assets/images/promo-code.png" class="img-fluid w-100 h-100" alt="Flower1"
+                                    style="object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="card" style="height: 40px; width: 40px; border: none;">
+                            <a href="#">
+                                <img src="assets/images/settings.png" class="img-fluid w-100 h-100" alt="Flower1"
+                                    style="object-fit: cover;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-6">
+                <div class="row">
+                    <div class="col pb-3">
+                        <h3 class="pt-3">Category</h3>
+                        <div class="card overflow-auto p-2 topcontainer border-0" style="height: 150px;">
+                            <div class="d-flex flex-start flex-row categories" id="categories">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card overflow-auto p-3 maincontainer border-0">
+                            <h3 class="pb-2">Choose Product</h3>
+                            <div class="d-flex flex-start flex-row flex-wrap" id="maincontainer">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="card p-3 overflow-auto" style="height: 100%;">
+                    <div class="sticky-top mb-4 mt-3">
+                        <div><b style="font-size: 20px;">Order Details</b></div>
+                    </div>
+                    <div id="receipt">
+
+                    </div>
+                    <div class="mt-4 d-flex flex-row justify-content-between">
+                        <div><b>TOTAL</b></div>
+                        <div><b id="totalValue">0</b></div>
+                    </div>
+                    <div class="mt-4 align-items-center text-center">
+                        <button class="print-button">Print Bills</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
+        </script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
