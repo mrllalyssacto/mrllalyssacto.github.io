@@ -3,7 +3,7 @@ var products = [];
 
 const getAllCategories = async () => {
     fetch(
-        'http://localhost/website/mrllalyssacto.github.io/projects/ADET/A06_BE/categories.php'
+        'http://localhost/website/mrllalyssacto.github.io/projects/ADET/A06/A06_BE/categories.php'
     )
         .then(response => response.json())
         .then(data => {
@@ -18,7 +18,7 @@ const getAllProducts = async (categoryID) => {
     };
 
     fetch(
-        'http://localhost/website/mrllalyssacto.github.io/projects/ADET/A06_BE/products.php', {
+        'http://localhost/website/mrllalyssacto.github.io/projects/ADET/A06/A06_BE/products.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
