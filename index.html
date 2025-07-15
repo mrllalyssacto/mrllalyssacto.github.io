@@ -10,501 +10,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="icon" href="images/logo.png">
-    <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
-
-        body {
-            background: black;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar {
-            background-color: black;
-            color: white;
-            border-bottom: 2px solid #9C27B0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 2rem;
-        }
-
-        .navbar-brand {
-            color: white;
-            transition: none;
-        }
-
-        .navbar-brand span {
-            background: #9C27B0;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .navbar-brand:hover {
-            color: white;
-        }
-
-        .nav-link {
-            color: white;
-            font-weight: 700;
-            position: relative;
-            transition: color 0.3s ease, text-decoration 0.3s ease;
-        }
-
-        .nav-link:hover {
-            background: #9C27B0;
-            background-clip: text;
-            color: transparent;
-            transform: scale(1.1);
-        }
-
-        .home {
-            min-height: 100vh;
-            padding: 0 15%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 0px;
-        }
-
-        .homeContent {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: left;
-            flex: 1;
-            margin-top: 0;
-            padding-top: 0px;
-        }
-
-        .homeContent h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-top: 1.5rem;
-            line-height: 1;
-        }
-
-        .homeContent h3 {
-            margin: 1rem 0;
-            font-size: 2rem;
-        }
-
-        .homeContent h1 span,
-        .homeContent h3 span {
-            background: #9C27B0;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .homeImg {
-            flex: 1;
-        }
-
-        .homeImg img {
-            width: 25vw;
-            border-radius: 50%;
-            box-shadow: 0 0 15px rgba(255, 235, 59, 0.6), 0 0 25px rgba(156, 39, 176, 0.6), 0 0 35px rgba(255, 235, 59, 0.8), 0 0 45px rgba(156, 39, 176, 0.8);
-            transition: 0.4s ease-in-out;
-        }
-
-        .homeImg img:hover {
-            box-shadow: 0 0 25px #9C27B0,
-                0 0 50px #9C27B0,
-                0 0 100px #9C27B0;
-        }
-
-        .typingEffect {
-            display: inline-block;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 2px solid #000;
-            animation: typing 3s steps(12, end) infinite, blink-caret 0.5s step-end infinite;
-        }
-
-        @keyframes typing {
-            0% {
-                width: 0;
-            }
-
-            50% {
-                width: 12ch;
-            }
-
-            100% {
-                width: 0;
-            }
-        }
-
-        @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent;
-            }
-
-            50% {
-                border-color: black;
-            }
-        }
-
-        .socialIcons a {
-            text-decoration: none;
-        }
-
-        .socialIcons a i {
-            font-size: 1.8rem;
-            background: #9C27B0;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-            transition: 0.3s ease-in-out;
-            margin: 0 8px;
-        }
-
-        .socialIcons a i:hover {
-            color: #FFEB3B;
-            transform: scale(1.2)translate(-5px);
-        }
-
-        .about {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
-            background-color: #131313;
-            padding: 5rem 2rem;
-        }
-
-        .aboutImg img {
-            width: 35vw;
-            height: auto;
-            overflow: hidden;
-            box-shadow: none;
-            display: block;
-            margin: 0 auto;
-            background: none;
-        }
-
-        .aboutContent h2 {
-            font-size: 4.5rem;
-            text-align: left;
-        }
-
-        .aboutContent h2 span {
-            background: #9C27B0;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .aboutContent p {
-            font-size: 1rem;
-        }
-
-        .devContent {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            width: 100%;
-        }
-
-        .devContent h3 {
-            font-size: 2.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 0;
-            flex-wrap: nowrap;
-            text-align: center;
-        }
-
-        .devContent h3 span {
-            background: #9C27B0;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-        }
-
-        .devContent button {
-            font-size: 1.25rem;
-            color: #9C27B0;
-            border: 2px solid #9C27B0;
-            background-color: transparent;
-            transition: all 0.3s ease-in-out;
-            padding: 5px 15px;
-            margin-top: 10px;
-        }
-
-        .devContent button:hover {
-            background: #9C27B0;
-            background-clip: text;
-            color: transparent;
-            border-color: #9C27B0;
-        }
-
-        .projects {
-            padding: 5rem 2rem;
-            background-color: #131313;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .cardProject {
-            background-color: #131313;
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            border: 2px solid #9C27B0;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            gap: 1rem;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 3rem;
-        }
-
-        .cardProject img {
-            max-width: 100%;
-            height: 200px;
-            border-radius: 1rem;
-            object-fit: cover;
-        }
-
-        .cardProject:hover {
-            transform: scale(1.05);
-
-        }
-
-        .cardTitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cardText {
-            font-size: 1rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .btn-primary {
-            background-color: #9C27B0;
-            border: none;
-            font-size: 1rem;
-            font-weight: 700;
-            padding: 0.8rem 1.5rem;
-            border-radius: 1rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #9C27B0;
-            color: white;
-        }
-
-        .footer {
-            background-color: #080808;
-            color: var(--text-color);
-            padding: 50px 0;
-        }
-
-        .footer .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .footer .socialIcons {
-            margin-bottom: 5px;
-        }
-
-        .footer .socialIcons a i {
-            color: #FFEB3B;
-            font-size: 2rem;
-            margin: 0 15px;
-            transition: transform 0.3s ease, color 0.3s ease;
-            background: #9C27B0;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .footer .socialIcons a i:hover {
-            transform: scale(1.2);
-            color: #9C27B0;
-        }
-
-        .footer ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .footer ul li {
-            display: inline-block;
-        }
-
-        .footer ul li a {
-            color: var(--text-color);
-            border-bottom: 2px solid transparent;
-            font-size: 1rem;
-            transition: color 0.3s ease, border-bottom 0.3s ease;
-            text-decoration: none;
-        }
-
-        .footer ul li a:hover {
-            color: var(--main-color);
-            background: #9C27B0;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .footer .copyright {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        @media (max-width: 768px) {
-            .home {
-                padding: 0 5%;
-            }
-
-            .homeContent {
-                text-align: center;
-            }
-
-            .homeContent h1 {
-                font-size: 2.5rem;
-            }
-
-            .homeContent h3 {
-                font-size: 1.5rem;
-            }
-
-            .homeImg img {
-                width: 48vw;
-            }
-
-            .navbar {
-                padding: 1rem;
-            }
-
-            .navbar-nav {
-                text-align: center;
-            }
-
-            .about {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .aboutImg img {
-                width: 70vw;
-            }
-
-            .aboutContent h2 {
-                font-size: 3rem;
-            }
-
-            .devContent h3 {
-                font-size: 2rem;
-            }
-
-            .devContent button {
-                font-size: 1.5rem;
-                padding: 6px 15px;
-            }
-
-            .projects {
-                flex-direction: column;
-            }
-
-            .cardProject {
-                width: 100%;
-                padding: 1rem;
-            }
-
-            .footer ul {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .homeContent h1 {
-                font-size: 2rem;
-            }
-
-            .homeContent h3 {
-                font-size: 1.2rem;
-            }
-
-            .homeImg img {
-                width: 70vw;
-            }
-
-            .socialIcons a i {
-                font-size: 1.3rem;
-            }
-
-            .aboutContent h2 {
-                font-size: 2.5rem;
-            }
-
-            .devContent h3 {
-                font-size: 1.5rem;
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            .devContent button {
-                font-size: 1rem;
-                padding: 5px 12px;
-            }
-
-            .cardProject {
-                padding: 0.5rem;
-                text-align: center;
-            }
-
-            .cardProject img {
-                height: 150px;
-            }
-
-            .footer .socialIcons a i {
-                font-size: 1.2rem;
-            }
-
-            .footer ul {
-                gap: 20px;
-            }
-        }
-    </style>
-
+    <link rel="icon" href="assets/images/logo.png">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#home">Alyssa<span> Cato</span></a>
+            <a class="navbar-brand" href="#home">
+                <img src="assets/images/logo3.png" alt="Alyssify Logo" style="height: 35px; width: 90px;">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -543,29 +58,26 @@
 
                 <div class="col-lg-6 col-md-12 mb-4">
                     <div class="homeImg mb-4">
-                        <img src="images/profile.png" alt="Profile" class="img-fluid">
+                        <img src="assets/images/profile2.png" alt="Profile" class="img-fluid">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
     <div class="about" id="about">
         <div class="container">
             <div class="row d-flex align-items-center justify-content-center text-center">
                 <div class="col-lg-6 col-md-12 mb-4 d-flex justify-content-center">
                     <div class="aboutImg d-flex justify-content-center">
-                        <img src="images/about2.png" alt="About" class="img-fluid">
+                        <img src="assets/images/about2.png" alt="About" class="img-fluid">
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center">
                     <div class="aboutContent text-center text-lg-justify">
                         <h2 class="mb-4">About<span> Me</span></h2>
-                        <p>Hi! I’m Marielle Alyssa L. Cato, a junior student at PUPSTC. I’m exploring and learning
-                            more
-                            about programming languages. I enjoy discovering new technologies and improving my
-                            skills.
+                        <p>Hi! I’m Marielle Alyssa L. Cato. I’m exploring and learning more
+                            about programming languages. I enjoy discovering new technologies and improving my skills.
                             I’m passionate about improving my skills and using them to work on real-world projects.
                             I’m excited to take on challenges and work on projects. I look forward to growing as a
                             developer.</p>
@@ -575,172 +87,32 @@
         </div>
     </div>
 
-
     <div class="projects" id="projects">
         <div class="container">
             <div class="aboutContent mb-5 text-center">
                 <h2>Pro<span>jects</span></h2>
             </div>
 
-            <div class="row mt-5">
-                <div class="col">
-                    <div class="devContent">
-                        <h3>
-                            Web <span>Development</span>
-                        </h3>
-                        <button type="button" onclick="expandContentWebDev()" class="btn btn-outline-secondary"
-                            id="btnExpandWebDev">More</button>
-                    </div>
-                </div>
+            <div class="d-flex justify-content-center gap-2">
+                <button type="button" onclick="expandContentWebDev()" class="custom-btn" id="btnExpandWebDev">
+                    Web Dev
+                </button>
+                <button type="button" onclick="expandContentAppDev()" class="custom-btn" id="btnExpandAppDev">
+                    App Dev
+                </button>
             </div>
 
 
             <div id="contentWebDev" style="display: none;">
-                <div class="row mt-3">
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="cardProject">
-                            <img src="images/lenovo.png" class="card-img-top" alt="Lenovo">
-                            <div class="card-body">
-                                <h5 class="cardTitle"><b>Lenovo</b></h5>
-                                <p class="cardText">A budget-friendly 14-inch laptop with an
-                                    Intel Celeron processor for everyday tasks. Affordable for everyone.</p>
-                                <a href="projects/webDev/project1/index.html" class="btn btn-primary">Project 1</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="cardProject">
-                            <img src="images/netherlands.jpg" class="card-img-top" alt="Netherlands">
-                            <div class="card-body">
-                                <h5 class="cardTitle"><b>Exploring Netherlands</b></h5>
-                                <p class="cardText">Explore the Netherlands' charming canals, vibrant cities, and
-                                    stunning
-                                    tulip fields for an unforgettable experience.</p>
-                                <a href="projects/webDev/project2/index.html" class="btn btn-primary">Project 2</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="cardProject">
-                            <img src="images/seventeen.jpg" class="card-img-top" alt="Seventeen">
-                            <div class="card-body">
-                                <h5 class="cardTitle"><b>Seventeen Gallery</b></h5>
-                                <p class="cardText">Discover Seventeen's albums, concept photos, and performances in a
-                                    stunning gallery.</p>
-                                <a href="projects/webDev/project3/index.html" class="btn btn-primary">Project 3</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="cardProject">
-                            <img src="images/rick and morty.jpg" class="card-img-top" alt="Rick and Morty API">
-                            <div class="card-body">
-                                <h5 class="cardTitle"><b>Rick and Morty API</b></h5>
-                                <p class="cardText">The Rick and Morty API offers data on characters, episodes, and
-                                    locations from the show.</p>
-                                <a href="projects/webDev/project4/index.html" class="btn btn-primary">Project 4</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="cardProject">
-                            <img src="images/space.jpg" class="card-img-top" alt="Outer Space">
-                            <div class="card-body">
-                                <h5 class="cardTitle"><b>Discover Space</b></h5>
-                                <p class="cardText">Explore the vastness of space, filled with stars, planets, and
-                                    waiting to be discovered.</p>
-                                <a href="projects/webDev/project5/banner.html" class="btn btn-primary">Project 5</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="cardProject">
-                            <img src="images/caratland.jpg" class="card-img-top" alt="Video">
-                            <div class="card-body">
-                                <h5 class="cardTitle"><b>Caratland</b></h5>
-                                <p class="cardText">Showcases exclusive content from Seventeen's latest performances and
-                                    events.</p>
-                                <a href="projects/webDev/video/index.html" class="btn btn-primary">Video</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mt-5">
-                <div class="col">
-                    <div class="devContent">
-                        <h3>
-                            App <span>Development</span>
-                        </h3>
-                        <button type="button" onclick="expandContentAppDev()" class="btn btn-outline-secondary"
-                            id="btnExpandAppDev">More</button>
-                    </div>
-                </div>
+                <div class="row mt-5" id="cardContainerWebDev"></div>
             </div>
 
             <div id="contentAppDev" style="display: none;">
-                <div class="row mt-3">
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="cardProject">
-                            <img src="projects/ADET/A02/images/formalModel.png" class="card-img-top" alt="MVC">
-                            <div class="card-body">
-                                <h5 class="cardTitle"><b>ApakPH</b></h5>
-                                <p class="cardText">It showcases quality local footwear, highlighting Filipino
-                                    craftmanship using MVC architecture.</p>
-                                <a href="projects/ADET/A02/index.php" class="btn btn-primary">A02</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="cardProject">
-                            <img src="images/powerpuff.jpg" class="card-img-top" alt="PowerPuff">
-                            <div class="card-body">
-                                <h5 class="cardTitle"><b>Powerpuff Girls</b></h5>
-                                <p class="cardText">Dive into the colorful world of Townsville with a dynamic Bento
-                                    style layout of characters and places!</p>
-                                <a href="projects/ADET/A03/index.html" class="btn btn-primary">A03</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="cardProject">
-                            <img src="images/flower.jpg" class="card-img-top" alt="Shop">
-                            <div class="card-body">
-                                <h5 class="cardTitle"><b>GreenNest POS</b></h5>
-                                <p class="cardText">An elegant POS built for seamless flower and garden shop sales —
-                                    simple, fast, reliable, and beautiful.</p>
-                                <a href="projects/ADET/A04/index.html" class="btn btn-primary">A04</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="cardProject">
-                            <img src="images/flower.jpg" class="card-img-top" alt="Shop">
-                            <div class="card-body">
-                                <h5 class="cardTitle"><b>GreenNest POS FE & BE</b></h5>
-                                <p class="cardText">A seamless POS with integrated front-end and back-end — fast,
-                                    reliable, and made for flower and garden shop sales.</p>
-                                <a href="projects/ADET/A06/A06_FE/index.html" class="btn btn-primary">A06</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="cardProject">
-                            <img src="images/goingsvt.jpg" class="card-img-top" alt="goingsvt">
-                            <div class="card-body">
-                                <h5 class="cardTitle"><b>17 Embeddable Site</b></h5>
-                                <p class="cardText">The Going Seventeen embeddable site showcases behind the scenes
-                                    pictures from SEVENTEEN’s variety show.</p>
-                                <a href="projects/ADET/A07/index.html" class="btn btn-primary">A07</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="row mt-5" id="cardContainerAppDev"></div>
             </div>
+
         </div>
     </div>
-
 
     <div class="footer">
         <div class="content">
@@ -760,47 +132,33 @@
                 <li><a href="#projects">Projects</a></li>
             </ul>
             <p class="copyright">
-                &copy; 2024 Alyssify. All Rights Reserved.
+                &copy; 2025 Alyssify. All Rights Reserved.
             </p>
         </div>
     </div>
+
+    <script src="assets/js/content.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
 
+
     <script>
-        var displayWebDev = "none";
-        var displayAppDev = "none";
-
         function expandContentWebDev() {
-            var content = document.getElementById("contentWebDev");
-            var btnExpand = document.getElementById("btnExpandWebDev");
+            document.getElementById("contentWebDev").style.display = "block";
+            document.getElementById("contentAppDev").style.display = "none";
 
-            if (displayWebDev === "none") {
-                content.style.display = "block";
-                displayWebDev = "block";
-                btnExpand.innerHTML = "Less";
-            } else {
-                content.style.display = "none";
-                displayWebDev = "none";
-                btnExpand.innerHTML = "More";
-            }
+            document.getElementById("btnExpandWebDev").classList.add("active");
+            document.getElementById("btnExpandAppDev").classList.remove("active");
         }
 
         function expandContentAppDev() {
-            var content = document.getElementById("contentAppDev");
-            var btnExpand = document.getElementById("btnExpandAppDev");
+            document.getElementById("contentWebDev").style.display = "none";
+            document.getElementById("contentAppDev").style.display = "block";
 
-            if (displayAppDev === "none") {
-                content.style.display = "block";
-                displayAppDev = "block";
-                btnExpand.innerHTML = "Less";
-            } else {
-                content.style.display = "none";
-                displayAppDev = "none";
-                btnExpand.innerHTML = "View";
-            }
+            document.getElementById("btnExpandAppDev").classList.add("active");
+            document.getElementById("btnExpandWebDev").classList.remove("active");
         }
     </script>
 
